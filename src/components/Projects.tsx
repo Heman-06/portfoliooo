@@ -157,28 +157,31 @@ export default function Projects() {
                         </span>
                       ))}
                     </div>
-                    <div className="flex gap-4">
+                    <div className="flex items-center justify-between">
                       <a
                         href={`/project/${project.id}`}
-                        className="flex items-center gap-1 text-sm text-gray-600 hover:text-black transition-colors font-medium"
+                        className="flex items-center gap-2 px-4 py-2 bg-black text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors"
                       >
-                        <Eye size={14} />
+                        <Eye size={16} />
                         View Details
                       </a>
-                      <a
-                        href={project.liveUrl}
-                        className="flex items-center gap-1 text-sm text-gray-600 hover:text-black transition-colors"
-                      >
-                        <ExternalLink size={14} />
-                        Live Demo
-                      </a>
-                      <button
-                        onClick={() => setShowConfModal(true)}
-                        className="flex items-center gap-1 text-sm text-gray-600 hover:text-black transition-colors"
-                      >
-                        <Code size={14} />
-                        Code
-                      </button>
+                      <div className="flex items-center gap-3">
+                        <a
+                          href={project.liveUrl}
+                          className="flex items-center gap-1.5 text-sm text-gray-600 hover:text-black transition-colors font-medium"
+                        >
+                          <ExternalLink size={16} />
+                          Live Demo
+                        </a>
+                        <span className="text-gray-300">|</span>
+                        <button
+                          onClick={() => setShowConfModal(true)}
+                          className="flex items-center gap-1.5 text-sm text-gray-600 hover:text-black transition-colors font-medium"
+                        >
+                          <Code size={16} />
+                          Code
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -220,25 +223,33 @@ export default function Projects() {
                       />
                     )}
                   </div>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => project.id === 'fly-crm' ? setShowConfModal(true) : window.location.href=`/project/${project.id}`}
-                      className="p-2 text-gray-600 hover:text-black hover:bg-gray-200 rounded-lg transition-colors"
-                      title="View Details"
+                  <div className="flex items-center gap-2">
+                    <a
+                      href={project.id === 'fly-crm' ? '#' : `/project/${project.id}`}
+                      onClick={(e) => {
+                        if (project.id === 'fly-crm') {
+                          e.preventDefault();
+                          setShowConfModal(true);
+                        }
+                      }}
+                      className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-900 text-white text-xs font-medium rounded-md hover:bg-gray-700 transition-colors"
                     >
-                      <Eye size={18} />
-                    </button>
+                      <Eye size={14} />
+                      View
+                    </a>
                     <button
                       onClick={() => setShowConfModal(true)}
-                      className="p-2 text-gray-600 hover:text-black hover:bg-gray-200 rounded-lg transition-colors"
+                      className="flex items-center gap-1.5 px-3 py-1.5 text-gray-600 hover:text-black hover:bg-gray-200 rounded-md transition-colors text-xs font-medium"
                     >
-                      <Code size={18} />
+                      <Code size={14} />
+                      Code
                     </button>
                     <a
                       href={project.liveUrl}
-                      className="p-2 text-gray-600 hover:text-black hover:bg-gray-200 rounded-lg transition-colors"
+                      className="flex items-center gap-1.5 p-1.5 text-gray-600 hover:text-black hover:bg-gray-200 rounded-md transition-colors"
+                      title="Live Demo"
                     >
-                      <ArrowUpRight size={18} />
+                      <ArrowUpRight size={16} />
                     </a>
                   </div>
                 </div>
