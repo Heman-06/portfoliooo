@@ -27,6 +27,16 @@ const projects = [
     featured: true
   },
   {
+    id: 'e-thekedaar',
+    title: 'E-Thekedaar – Construction Management App',
+    description: 'Cross-platform Flutter mobile app with monorepo backend for construction project management. Features real-time project tracking, contractor coordination, milestone management, on-site photo documentation with geotagging, offline capability for remote sites, and automatic sync. Supports government and private projects with role-based access.',
+    image: '/image copy 4.png',
+    tags: ['Flutter', 'Dart', 'Firebase', 'Node.js', 'REST API', 'Monorepo', 'Mobile App'],
+    liveUrl: '#',
+    githubUrl: '#',
+    featured: true
+  },
+  {
     id: 'corefit-plus',
     title: 'Corefit Plus – Fitness & Wellness Platform',
     description: 'Developed responsive frontend UI for a static fitness and wellness platform. Built landing pages for class booking info, membership details with cross-device compatibility and performance optimization.',

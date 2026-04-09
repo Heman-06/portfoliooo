@@ -34,15 +34,21 @@ export const projectsData: Project[] = [
       'Complete business verification system with document upload and approval workflow',
       'Lead management and business-to-lead conversion tracking',
       'Subscription management with Razorpay payment gateway integration',
-      'Admin dashboard with comprehensive analytics and user management',
-      'Bulk import system for businesses and leads via CSV/Excel',
-      'Coupon and discount management system',
+      'Admin panel with user management, business moderation, and analytics',
+      'User dashboard with business profile, products, leads, and membership management',
+      'Bulk import system for businesses and leads via CSV/Excel with progress tracking',
+      'Coupon and discount management system with usage analytics',
       'Industry categorization and filtering system',
-      'Notification system with Firebase Cloud Messaging',
-      'Brand management and showcase features',
-      'Feed system for business updates and announcements',
-      'Location-based business discovery',
-      'Responsive design across all devices',
+      'Notification system with Firebase Cloud Messaging and in-app alerts',
+      'Brand management and showcase features for business profiles',
+      'Feed system for business updates, announcements, and social engagement',
+      'Location-based business discovery and filtering',
+      'Lead marketplace with purchase, unlock, and management features',
+      'Product marketplace with categories, search, and checkout flow',
+      'Broadcast messaging system for admin-to-user communication',
+      'Business CRM with notes, status tracking, and interaction history',
+      'Subscription plans with feature-based access control',
+      'Role-based access control: Super Admin, Admin, User tiers',
       'Redis caching for improved performance',
       'Rate limiting and security middleware'
     ],
@@ -53,7 +59,7 @@ export const projectsData: Project[] = [
       },
       {
         category: 'Dashboard (Frontend)',
-        technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Recharts', 'React Hook Form', 'Zustand']
+        technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Recharts', 'React Hook Form', 'Zustand', 'React Router']
       },
       {
         category: 'Backend API',
@@ -84,13 +90,16 @@ export const projectsData: Project[] = [
       'Architecting a scalable system with three separate components (landing, backend, dashboard)',
       'Implementing real-time chat with proper room management and message persistence',
       'Designing a flexible subscription system with Razorpay that handles multiple plans',
-      'Building a bulk import system that validates and processes large CSV/Excel files',
+      'Building a bulk import system that validates and processes large CSV/Excel files with progress tracking',
       'Managing state across the admin dashboard with complex data relationships',
       'Creating a verification workflow with document upload and approval stages',
       'Optimizing performance with Redis caching for frequently accessed data',
       'Handling file uploads securely with proper validation and storage',
       'Building a notification system that works across web and potential mobile',
-      'Implementing rate limiting and security measures for production'
+      'Implementing role-based access control with multiple user tiers',
+      'Creating a lead marketplace with purchase and unlock mechanisms',
+      'Building a broadcast system for mass communication to users',
+      'Managing business-to-lead conversion tracking and CRM functionality'
     ],
     learnings: [
       'Advanced Next.js 15 features with App Router and Turbopack',
@@ -103,7 +112,89 @@ export const projectsData: Project[] = [
       'Three.js and 3D animations for modern web experiences',
       'File upload handling with Multer and cloud storage',
       'Cron job implementation for automated tasks',
-      'Security best practices with Helmet and express-rate-limit'
+      'Security best practices with Helmet and express-rate-limit',
+      'Building marketplace features with purchase/unlock mechanics',
+      'Role-based access control implementation'
+    ]
+  },
+  {
+    id: 'e-thekedaar',
+    title: 'E-Ethekedaar – Construction Management App',
+    shortDescription: 'Cross-platform Flutter mobile app with monorepo backend for construction project management with offline capability',
+    fullDescription: 'E-Ethekedaar is a comprehensive construction management solution consisting of a cross-platform Flutter mobile application and a monorepo backend architecture. The Flutter app provides on-site project management capabilities including real-time project tracking, contractor coordination, milestone management, photo documentation with geotagging, and offline data persistence for remote construction sites. The monorepo backend contains shared modules for API services, database models, and business logic that serve both the mobile app and web dashboard. Features include automatic sync when connectivity is restored, multi-role access (Admin, Contractor, Engineer, Client), material tracking, labor attendance, compliance documentation, and real-time notifications via Firebase.',
+    image: '/image copy 4.png',
+    gallery: ['/image copy 4.png', '/image copy 3.png', '/image copy 5.png'],
+    tags: ['Flutter', 'Dart', 'Firebase', 'Node.js', 'REST API', 'Monorepo', 'SQLite', 'Mobile App'],
+    liveUrl: '#',
+    githubUrl: '#',
+    features: [
+      'Project lifecycle management: tender to completion tracking',
+      'Government and private project categorization with compliance workflows',
+      'Multi-level contractor management and assignment system',
+      'Milestone and phase-based progress tracking with Gantt charts',
+      'Material inventory management with supplier integration',
+      'Labor management: attendance, wages, and skill tracking',
+      'Site inspection and quality control documentation',
+      'Compliance document management for government standards',
+      'Financial tracking: budgets, expenses, payments, and invoices',
+      'Role-based dashboards: Admin, Contractor, Engineer, Client',
+      'Real-time project analytics and reporting with Chart.js',
+      'Automated daily/weekly/monthly progress reports',
+      'File storage for contracts, blueprints, permits, and approvals',
+      'Multi-project portfolio view for construction companies',
+      'SMS and email notifications for milestones and delays',
+      'Mobile-responsive design for on-site usage'
+    ],
+    techStack: [
+      {
+        category: 'Mobile App (Flutter)',
+        technologies: ['Flutter', 'Dart', 'GetX (State Management)', 'SQLite (Offline)', 'Firebase FCM']
+      },
+      {
+        category: 'Monorepo Backend',
+        technologies: ['Node.js', 'Express.js', 'TypeScript', 'JWT Authentication', 'REST APIs']
+      },
+      {
+        category: 'Shared Modules',
+        technologies: ['Common Business Logic', 'Database Models', 'API Services', 'Authentication']
+      },
+      {
+        category: 'Database',
+        technologies: ['MongoDB (Server)', 'SQLite (Mobile Local)', 'Firebase Firestore']
+      },
+      {
+        category: 'DevOps & Tools',
+        technologies: ['Git', 'Monorepo Structure', 'Postman', 'Flutter DevTools']
+      }
+    ],
+    challenges: [
+      'Designing flexible project templates for different construction types (roads, buildings, infrastructure)',
+      'Creating an approval workflow system that handles government compliance requirements',
+      'Managing complex contractor hierarchies and subcontractor relationships',
+      'Implementing real-time progress calculation across multiple concurrent projects',
+      'Building a material inventory system with stock alerts and supplier coordination',
+      'Handling large file uploads for blueprints, permits, and site photos',
+      'Creating role-based access that varies permissions by project and company',
+      'Developing automated reporting that aggregates data across all project dimensions',
+      'Managing budget tracking with multiple expense categories and approval flows',
+      'Implementing offline-capable features for remote construction sites'
+    ],
+    learnings: [
+      'Flutter cross-platform development for iOS and Android',
+      'Monorepo architecture for shared code between mobile and web',
+      'Offline-first mobile app design with SQLite local storage',
+      'Automatic data synchronization strategies',
+      'GetX state management for complex Flutter apps',
+      'Firebase integration for notifications and real-time updates',
+      'Geotagging and location services in Flutter',
+      'Domain-driven design for construction industry workflows',
+      'MongoDB schema design for hierarchical project data',
+      'File handling and storage strategies for construction documents',
+      'Role-based authentication with project-level permissions',
+      'Chart.js configuration for construction progress visualization',
+      'Multi-level approval workflow implementation',
+      'Construction domain knowledge: tendering, milestones, BOQ',
+      'Mobile-first responsive design for field usage'
     ]
   },
   {

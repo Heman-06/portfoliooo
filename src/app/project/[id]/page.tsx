@@ -235,7 +235,7 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
               </motion.div>
             )}
 
-            {/* Bharat Business Pro - 3 Tier Architecture Showcase */}
+            {/* Bharat Business Pro - Dual Panel System Showcase */}
             {id === 'bharat-business-pro' && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -243,109 +243,266 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="mt-12 max-w-6xl mx-auto"
               >
-                <h3 className="text-2xl font-bold text-white text-center mb-8">3-Tier Architecture</h3>
+                <h3 className="text-2xl font-bold text-white text-center mb-8">Dual-Panel System Architecture</h3>
                 
-                <div className="grid md:grid-cols-3 gap-6">
-                  {/* 1 - Landing Page */}
-                  <div className="group">
-                    <div className="relative bg-gray-800 rounded-xl p-4 border border-cyan-500/30 hover:border-cyan-500/60 transition-all">
-                      <div className="bg-gray-900 rounded-lg border-2 border-gray-700 overflow-hidden">
-                        <div className="h-[160px] relative overflow-hidden">
-                          <Image src="/image.png" alt="Landing Page" fill sizes="200px" className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                        </div>
+                {/* System Overview */}
+                <div className="grid md:grid-cols-4 gap-4 mb-8">
+                  {[
+                    { title: 'Landing Page', tech: 'Next.js 15 + 3D', color: 'cyan', icon: '🌐' },
+                    { title: 'Backend API', tech: 'Express + Socket.io', color: 'orange', icon: '⚙️' },
+                    { title: 'Admin Panel', tech: 'React + Recharts', color: 'red', icon: '👨‍💼' },
+                    { title: 'User Dashboard', tech: 'React + Zustand', color: 'purple', icon: '👤' }
+                  ].map((item) => (
+                    <div key={item.title} className={`bg-gray-800 rounded-lg p-4 border border-${item.color}-500/30 text-center`}>
+                      <div className="text-3xl mb-2">{item.icon}</div>
+                      <div className={`text-${item.color}-400 font-semibold text-sm`}>{item.title}</div>
+                      <div className="text-gray-500 text-xs mt-1">{item.tech}</div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Dual Panel Details */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  {/* Admin Panel */}
+                  <div className="bg-gray-800/50 rounded-xl p-6 border border-red-500/20">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-red-500/20 rounded-lg flex items-center justify-center">
+                        <span className="text-red-400 text-lg">👨‍💼</span>
                       </div>
-                      <div className="mt-4 flex items-center gap-3">
-                        <div className="p-2 bg-cyan-500/20 rounded-lg">
-                          <span className="text-cyan-400 text-xs font-bold">01</span>
-                        </div>
-                        <div>
-                          <p className="text-white text-sm font-semibold">Landing Page</p>
-                          <p className="text-gray-500 text-xs">Next.js + 3D Animations</p>
-                        </div>
-                      </div>
-                      <div className="mt-3 flex flex-wrap gap-1">
-                        {['Next.js 15', 'Three.js', 'Framer Motion', 'Tailwind'].map((tech) => (
-                          <span key={tech} className="px-2 py-0.5 bg-gray-800 text-gray-400 text-[10px] rounded">
-                            {tech}
-                          </span>
-                        ))}
+                      <div>
+                        <h4 className="text-white font-semibold">Admin Panel</h4>
+                        <p className="text-gray-500 text-xs">Management & Moderation</p>
                       </div>
                     </div>
+                    <ul className="space-y-2 text-sm text-gray-400">
+                      <li className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 bg-red-400 rounded-full mt-1.5"></span>
+                        <span>User management with role-based access (Super Admin, Admin, User)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 bg-red-400 rounded-full mt-1.5"></span>
+                        <span>Business moderation and verification workflow</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 bg-red-400 rounded-full mt-1.5"></span>
+                        <span>Lead management with add, edit, assign features</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 bg-red-400 rounded-full mt-1.5"></span>
+                        <span>Subscription management with Razorpay integration</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 bg-red-400 rounded-full mt-1.5"></span>
+                        <span>Coupon and discount code management</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 bg-red-400 rounded-full mt-1.5"></span>
+                        <span>Bulk import system with progress tracking (CSV/Excel)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 bg-red-400 rounded-full mt-1.5"></span>
+                        <span>Broadcast messaging to all users</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 bg-red-400 rounded-full mt-1.5"></span>
+                        <span>Business CRM with interaction tracking</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 bg-red-400 rounded-full mt-1.5"></span>
+                        <span>Real-time analytics dashboard with Recharts</span>
+                      </li>
+                    </ul>
                   </div>
 
-                  {/* 2 - Backend API */}
-                  <div className="group">
-                    <div className="relative bg-gray-800 rounded-xl p-4 border border-orange-500/30 hover:border-orange-500/60 transition-all">
-                      <div className="bg-gray-900 rounded-lg border-2 border-gray-700 p-4">
-                        <div className="h-[140px] flex flex-col justify-center space-y-2">
-                          <div className="flex items-center gap-2 text-green-400 text-xs">
-                            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                            API Server Running
-                          </div>
-                          <div className="font-mono text-[10px] text-gray-400 space-y-1">
-                            <div className="bg-gray-800 p-2 rounded">POST /api/auth/login</div>
-                            <div className="bg-gray-800 p-2 rounded">GET /api/business</div>
-                            <div className="bg-gray-800 p-2 rounded">WS /chat</div>
-                            <div className="bg-gray-800 p-2 rounded">POST /webhook/razorpay</div>
-                          </div>
-                        </div>
+                  {/* User Dashboard */}
+                  <div className="bg-gray-800/50 rounded-xl p-6 border border-purple-500/20">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                        <span className="text-purple-400 text-lg">👤</span>
                       </div>
-                      <div className="mt-4 flex items-center gap-3">
-                        <div className="p-2 bg-orange-500/20 rounded-lg">
-                          <span className="text-orange-400 text-xs font-bold">02</span>
-                        </div>
-                        <div>
-                          <p className="text-white text-sm font-semibold">Backend API</p>
-                          <p className="text-gray-500 text-xs">Express.js + TypeScript</p>
-                        </div>
-                      </div>
-                      <div className="mt-3 flex flex-wrap gap-1">
-                        {['Express', 'Socket.io', 'Redis', 'Firebase'].map((tech) => (
-                          <span key={tech} className="px-2 py-0.5 bg-gray-800 text-gray-400 text-[10px] rounded">
-                            {tech}
-                          </span>
-                        ))}
+                      <div>
+                        <h4 className="text-white font-semibold">User Dashboard</h4>
+                        <p className="text-gray-500 text-xs">Business Management & Networking</p>
                       </div>
                     </div>
-                  </div>
-
-                  {/* 3 - Admin Dashboard */}
-                  <div className="group">
-                    <div className="relative bg-gray-800 rounded-xl p-4 border border-purple-500/30 hover:border-purple-500/60 transition-all">
-                      <div className="bg-gray-900 rounded-lg border-2 border-gray-700 overflow-hidden">
-                        <div className="h-[160px] relative overflow-hidden">
-                          <Image src="/image copy.png" alt="Dashboard" fill sizes="200px" className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                        </div>
-                      </div>
-                      <div className="mt-4 flex items-center gap-3">
-                        <div className="p-2 bg-purple-500/20 rounded-lg">
-                          <span className="text-purple-400 text-xs font-bold">03</span>
-                        </div>
-                        <div>
-                          <p className="text-white text-sm font-semibold">Admin Dashboard</p>
-                          <p className="text-gray-500 text-xs">React + TypeScript</p>
-                        </div>
-                      </div>
-                      <div className="mt-3 flex flex-wrap gap-1">
-                        {['React', 'Recharts', 'Zustand', 'Tailwind'].map((tech) => (
-                          <span key={tech} className="px-2 py-0.5 bg-gray-800 text-gray-400 text-[10px] rounded">
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                    <ul className="space-y-2 text-sm text-gray-400">
+                      <li className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-1.5"></span>
+                        <span>Business profile management with brand showcase</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-1.5"></span>
+                        <span>Product catalog with marketplace listing</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-1.5"></span>
+                        <span>Lead marketplace with purchase/unlock system</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-1.5"></span>
+                        <span>Real-time chat with other businesses (Socket.io)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-1.5"></span>
+                        <span>Membership and subscription management</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-1.5"></span>
+                        <span>Feed system for business updates and announcements</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-1.5"></span>
+                        <span>Location-based business discovery</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-1.5"></span>
+                        <span>Notification center with FCM integration</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-1.5"></span>
+                        <span>Industry-based filtering and search</span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
 
-                {/* Connection Lines Visualization */}
-                <div className="hidden md:flex justify-center items-center mt-6 gap-4">
-                  <div className="text-cyan-400 text-xs">Landing Page</div>
-                  <div className="flex items-center gap-1">
-                    <div className="h-0.5 w-8 bg-gradient-to-r from-cyan-500 to-orange-500"></div>
-                    <span className="text-gray-500 text-xs">REST API / WebSocket</span>
-                    <div className="h-0.5 w-8 bg-gradient-to-r from-orange-500 to-purple-500"></div>
+                {/* Core Modules Grid */}
+                <div className="mt-8">
+                  <h4 className="text-white font-semibold text-center mb-4">Core System Modules</h4>
+                  <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
+                    {[
+                      { icon: '💬', label: 'Chat', color: 'cyan' },
+                      { icon: '🎯', label: 'Leads', color: 'blue' },
+                      { icon: '🛍️', label: 'Products', color: 'indigo' },
+                      { icon: '📢', label: 'Broadcast', color: 'orange' },
+                      { icon: '💳', label: 'Payments', color: 'green' },
+                      { icon: '📊', label: 'Analytics', color: 'pink' }
+                    ].map((module) => (
+                      <div key={module.label} className={`bg-gray-800 rounded-lg p-3 text-center border border-${module.color}-500/20`}>
+                        <div className="text-2xl mb-1">{module.icon}</div>
+                        <div className={`text-${module.color}-400 text-xs font-medium`}>{module.label}</div>
+                      </div>
+                    ))}
                   </div>
-                  <div className="text-purple-400 text-xs">Dashboard</div>
+                </div>
+
+                {/* Tech Flow */}
+                <div className="mt-8 flex flex-wrap justify-center gap-2 text-xs">
+                  {['Landing (Next.js)', '→', 'API (Express)', '→', 'Admin (React)', '|', 'User Dashboard (React)', '←', 'WebSocket (Socket.io)'].map((item, i) => (
+                    <span key={i} className={item === '→' || item === '|' || item === '←' ? 'text-gray-600' : 'text-gray-400 bg-gray-800 px-2 py-1 rounded'}>
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+
+            {/* E-Ethekedaar - Construction Project Workflow Showcase */}
+            {id === 'e-ethekedaar' && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="mt-12 max-w-6xl mx-auto"
+              >
+                <h3 className="text-2xl font-bold text-white text-center mb-8">Construction Project Lifecycle</h3>
+                
+                {/* Workflow Steps */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                  {[
+                    { step: '01', title: 'Tender', desc: 'Project creation & tender allocation', color: 'cyan' },
+                    { step: '02', title: 'Planning', desc: 'Milestones & resource allocation', color: 'blue' },
+                    { step: '03', title: 'Execution', desc: 'Progress tracking & monitoring', color: 'orange' },
+                    { step: '04', title: 'Completion', desc: 'Final inspection & handover', color: 'green' }
+                  ].map((item) => (
+                    <div key={item.step} className={`bg-gray-800 rounded-lg p-4 border border-${item.color}-500/30 hover:border-${item.color}-500/60 transition-all`}>
+                      <div className={`text-${item.color}-400 text-lg font-bold mb-2`}>{item.step}</div>
+                      <div className="text-white font-semibold text-sm">{item.title}</div>
+                      <div className="text-gray-500 text-xs mt-1">{item.desc}</div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* User Roles Section */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  {/* Government Projects */}
+                  <div className="bg-gray-800/50 rounded-xl p-6 border border-yellow-500/20">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-yellow-500/20 rounded-lg flex items-center justify-center">
+                        <span className="text-yellow-400 text-lg">🏛️</span>
+                      </div>
+                      <div>
+                        <h4 className="text-white font-semibold">Government Projects</h4>
+                        <p className="text-gray-500 text-xs">Public sector compliance & tracking</p>
+                      </div>
+                    </div>
+                    <ul className="space-y-2 text-sm text-gray-400">
+                      <li className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 bg-yellow-400 rounded-full"></span>
+                        Tender document management
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 bg-yellow-400 rounded-full"></span>
+                        E-tendering integration
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 bg-yellow-400 rounded-full"></span>
+                        Compliance documentation (PWD, CPWD standards)
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 bg-yellow-400 rounded-full"></span>
+                        Bill of Quantities (BOQ) tracking
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Private Projects */}
+                  <div className="bg-gray-800/50 rounded-xl p-6 border border-purple-500/20">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
+                        <span className="text-purple-400 text-lg">🏢</span>
+                      </div>
+                      <div>
+                        <h4 className="text-white font-semibold">Private Projects</h4>
+                        <p className="text-gray-500 text-xs">Residential & commercial construction</p>
+                      </div>
+                    </div>
+                    <ul className="space-y-2 text-sm text-gray-400">
+                      <li className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>
+                        Client portal with progress updates
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>
+                        Budget tracking & cost control
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>
+                        Material inventory management
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>
+                        Contractor payment scheduling
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Core Modules */}
+                <div className="mt-8 grid grid-cols-3 md:grid-cols-6 gap-3">
+                  {[
+                    { icon: '📊', label: 'Dashboard', color: 'cyan' },
+                    { icon: '👷', label: 'Contractors', color: 'blue' },
+                    { icon: '📅', label: 'Milestones', color: 'indigo' },
+                    { icon: '📦', label: 'Materials', color: 'orange' },
+                    { icon: '💰', label: 'Finance', color: 'green' },
+                    { icon: '📋', label: 'Reports', color: 'pink' }
+                  ].map((module) => (
+                    <div key={module.label} className={`bg-gray-800 rounded-lg p-3 text-center border border-${module.color}-500/20`}>
+                      <div className="text-2xl mb-1">{module.icon}</div>
+                      <div className={`text-${module.color}-400 text-xs font-medium`}>{module.label}</div>
+                    </div>
+                  ))}
                 </div>
               </motion.div>
             )}
@@ -356,7 +513,7 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
                 onClick={() => {
                   if (id === 'apna-duggu') {
                     setShowLiveModal(true);
-                  } else if (id === 'fly-crm' || id === 'bharat-business-pro') {
+                  } else if (id === 'fly-crm' || id === 'bharat-business-pro' || id === 'e-ethekedaar') {
                     setShowCodeModal(true);
                   } else {
                     window.open(project.liveUrl, '_blank');
@@ -369,7 +526,7 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
               </button>
               <button
                 onClick={() => {
-                  if (id === 'fly-crm' || id === 'apna-duggu' || id === 'bharat-business-pro') {
+                  if (id === 'fly-crm' || id === 'apna-duggu' || id === 'bharat-business-pro' || id === 'e-ethekedaar') {
                     setShowCodeModal(true);
                   } else {
                     window.open(project.githubUrl, '_blank');
