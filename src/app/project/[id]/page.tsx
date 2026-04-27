@@ -16,6 +16,7 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
   const project = projectsData.find((p) => p.id === id);
   const [showCodeModal, setShowCodeModal] = useState(false);
   const [showLiveModal, setShowLiveModal] = useState(false);
+  const [showWorkingModal, setShowWorkingModal] = useState(false);
 
   if (!project) {
     return (
@@ -398,7 +399,7 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
             )}
 
             {/* E-Ethekedaar - Construction Project Workflow Showcase */}
-            {id === 'e-ethekedaar' && (
+            {id === 'e-thekedaar' && (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -513,7 +514,9 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
                 onClick={() => {
                   if (id === 'apna-duggu') {
                     setShowLiveModal(true);
-                  } else if (id === 'fly-crm' || id === 'bharat-business-pro' || id === 'e-ethekedaar') {
+                  } else if (id === 'e-thekedaar') {
+                    setShowWorkingModal(true);
+                  } else if (id === 'fly-crm' || id === 'bharat-business-pro') {
                     setShowCodeModal(true);
                   } else {
                     window.open(project.liveUrl, '_blank');
@@ -525,13 +528,7 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
                 Live Demo
               </button>
               <button
-                onClick={() => {
-                  if (id === 'fly-crm' || id === 'apna-duggu' || id === 'bharat-business-pro' || id === 'e-ethekedaar') {
-                    setShowCodeModal(true);
-                  } else {
-                    window.open(project.githubUrl, '_blank');
-                  }
-                }}
+                onClick={() => setShowCodeModal(true)}
                 className="flex items-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors"
               >
                 <Code size={18} />
@@ -557,38 +554,6 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
                 <h2 className="text-2xl font-bold text-white mb-4">About the Project</h2>
                 <p className="text-gray-400 leading-relaxed">{project.fullDescription}</p>
               </motion.div>
-
-              {/* Project Gallery - Show for all projects with gallery */}
-              {project.gallery && project.gallery.length > 0 && id !== 'apna-duggu' && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                >
-                  <h2 className="text-2xl font-bold text-white mb-6">Project Preview</h2>
-                  <div className="grid gap-6">
-                    {project.gallery.map((img, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.1 }}
-                        className="relative rounded-xl overflow-hidden border border-gray-800 shadow-2xl"
-                      >
-                        <Image
-                          src={img}
-                          alt={`${project.title} screenshot ${index + 1}`}
-                          width={1200}
-                          height={800}
-                          sizes="(max-width: 768px) 100vw, 1200px"
-                          className="w-full h-auto object-cover"
-                        />
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
 
               {/* Features */}
               <motion.div
@@ -839,6 +804,60 @@ export default function ProjectDetail({ params }: ProjectDetailProps) {
               className="w-full py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors font-semibold"
             >
               Understood
+            </button>
+          </motion.div>
+        </motion.div>
+      )}
+      </AnimatePresence>
+
+      {/* Working Currently Modal - E-Ethekedaar */}
+      <AnimatePresence>
+        {showWorkingModal && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={() => setShowWorkingModal(false)}
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            transition={{ type: 'spring', duration: 0.3 }}
+            className="bg-gray-900 border border-orange-500/30 rounded-2xl p-8 max-w-md w-full shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-start mb-6">
+              <div className="flex items-center gap-3">
+                <div className="p-3 bg-orange-500/20 rounded-full">
+                  <Zap className="text-orange-400" size={24} />
+                </div>
+                <h3 className="text-xl font-bold text-white">Working Currently</h3>
+              </div>
+              <button
+                onClick={() => setShowWorkingModal(false)}
+                className="p-1 hover:bg-gray-800 rounded-full transition-colors"
+              >
+                <X className="text-gray-400" size={20} />
+              </button>
+            </div>
+            
+            <p className="text-gray-400 mb-6 leading-relaxed">
+              This project is <span className="text-orange-400 font-semibold">currently under development</span>. The live demo will be available soon.
+            </p>
+            
+            <div className="bg-gray-800/50 rounded-lg p-4 border border-gray-700 mb-6">
+              <p className="text-sm text-gray-500">
+                For updates and early access, please stay tuned for the official release.
+              </p>
+            </div>
+            
+            <button
+              onClick={() => setShowWorkingModal(false)}
+              className="w-full py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-lg transition-colors font-semibold"
+            >
+              Got it
             </button>
           </motion.div>
         </motion.div>

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Code, ArrowUpRight, Eye, Lock, X, Users, Gift } from 'lucide-react';
+import { ExternalLink, Code, ArrowUpRight, Eye, Lock, X, Users, Gift, Zap } from 'lucide-react';
 
 const projects = [
   {
@@ -12,7 +12,7 @@ const projects = [
     description: 'Full-stack business networking platform with Next.js landing page, Express.js backend, and React dashboard. Features real-time chat, lead management, Razorpay subscriptions, admin panel, and business verification system.',
     image: 'https://bharatbusinessnetworks.com/frontend/img/sticky-logo.png',
     tags: ['Next.js', 'Express.js', 'TypeScript', 'Firebase', 'Redis', 'Socket.io', 'Razorpay'],
-    liveUrl: '#',
+    liveUrl: 'https://bharatbusinessnetworks.com',
     githubUrl: '#',
     featured: true
   },
@@ -28,9 +28,9 @@ const projects = [
   },
   {
     id: 'e-thekedaar',
-    title: 'E-Thekedaar – Construction Management App',
+    title: 'E-Ethekedaar – Construction Management App',
     description: 'Cross-platform Flutter mobile app with monorepo backend for construction project management. Features real-time project tracking, contractor coordination, milestone management, on-site photo documentation with geotagging, offline capability for remote sites, and automatic sync. Supports government and private projects with role-based access.',
-    image: '/image copy 4.png',
+    image: 'https://e-thekedaar-assets.s3.ap-south-1.amazonaws.com/e-Thekedaar-01.png',
     tags: ['Flutter', 'Dart', 'Firebase', 'Node.js', 'REST API', 'Monorepo', 'Mobile App'],
     liveUrl: '#',
     githubUrl: '#',
@@ -90,6 +90,7 @@ const projects = [
 
 export default function Projects() {
   const [showConfModal, setShowConfModal] = useState(false);
+  const [showWorkingModal, setShowWorkingModal] = useState(false);
 
   return (
     <section id="projects" className="relative w-full py-20 px-4 sm:px-6 lg:px-8 bg-white text-black">
@@ -98,7 +99,7 @@ export default function Projects() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -123,7 +124,7 @@ export default function Projects() {
                 key={project.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group relative"
               >
@@ -166,13 +167,23 @@ export default function Projects() {
                         View Details
                       </a>
                       <div className="flex items-center gap-3">
-                        <a
-                          href={project.liveUrl}
-                          className="flex items-center gap-1.5 text-sm text-gray-600 hover:text-black transition-colors font-medium"
-                        >
-                          <ExternalLink size={16} />
-                          Live Demo
-                        </a>
+                        {project.id === 'e-thekedaar' ? (
+                          <button
+                            onClick={() => setShowWorkingModal(true)}
+                            className="flex items-center gap-1.5 text-sm text-gray-600 hover:text-black transition-colors font-medium"
+                          >
+                            <ExternalLink size={16} />
+                            Live Demo
+                          </button>
+                        ) : (
+                          <a
+                            href={project.liveUrl}
+                            className="flex items-center gap-1.5 text-sm text-gray-600 hover:text-black transition-colors font-medium"
+                          >
+                            <ExternalLink size={16} />
+                            Live Demo
+                          </a>
+                        )}
                         <span className="text-gray-300">|</span>
                         <button
                           onClick={() => setShowConfModal(true)}
@@ -196,13 +207,13 @@ export default function Projects() {
             <span className="w-2 h-2 bg-purple-500 rounded-full" />
             Other Projects
           </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 gap-6">
             {projects.filter(p => !p.featured).map((project, index) => (
               <motion.div
                 key={project.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group bg-white rounded-xl p-6 border border-gray-200 hover:border-gray-400 hover:bg-gray-50 transition-all duration-300"
               >
@@ -244,13 +255,23 @@ export default function Projects() {
                       <Code size={14} />
                       Code
                     </button>
-                    <a
-                      href={project.liveUrl}
-                      className="flex items-center gap-1.5 p-1.5 text-gray-600 hover:text-black hover:bg-gray-200 rounded-md transition-colors"
-                      title="Live Demo"
-                    >
-                      <ArrowUpRight size={16} />
-                    </a>
+                    {project.id === 'fly-crm' ? (
+                      <button
+                        onClick={() => setShowConfModal(true)}
+                        className="flex items-center gap-1.5 p-1.5 text-gray-600 hover:text-black hover:bg-gray-200 rounded-md transition-colors"
+                        title="Live Demo"
+                      >
+                        <ArrowUpRight size={16} />
+                      </button>
+                    ) : (
+                      <a
+                        href={project.liveUrl}
+                        className="flex items-center gap-1.5 p-1.5 text-gray-600 hover:text-black hover:bg-gray-200 rounded-md transition-colors"
+                        title="Live Demo"
+                      >
+                        <ArrowUpRight size={16} />
+                      </a>
+                    )}
                   </div>
                 </div>
                 <h4 className="text-lg font-semibold text-black mb-2 group-hover:text-gray-600 transition-colors">
@@ -274,6 +295,60 @@ export default function Projects() {
           </div>
         </div>
       </div>
+
+      {/* Working Currently Modal */}
+      <AnimatePresence>
+        {showWorkingModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={() => setShowWorkingModal(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: 'spring', duration: 0.3 }}
+              className="bg-white border border-orange-500/30 rounded-2xl p-8 max-w-md w-full shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex justify-between items-start mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="p-3 bg-orange-500/20 rounded-full">
+                    <Zap className="text-orange-400" size={24} />
+                  </div>
+                  <h3 className="text-xl font-bold text-black">Working Currently</h3>
+                </div>
+                <button
+                  onClick={() => setShowWorkingModal(false)}
+                  className="p-1 hover:bg-gray-200 rounded-full transition-colors"
+                >
+                  <X className="text-gray-400" size={20} />
+                </button>
+              </div>
+              
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                This project is <span className="text-orange-400 font-semibold">currently under development</span>. The live demo will be available soon.
+              </p>
+              
+              <div className="bg-gray-100 rounded-lg p-4 border border-gray-200 mb-6">
+                <p className="text-sm text-gray-500">
+                  For updates and early access, please stay tuned for the official release.
+                </p>
+              </div>
+              
+              <button
+                onClick={() => setShowWorkingModal(false)}
+                className="w-full py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-lg transition-colors font-semibold"
+              >
+                Got it
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Confidentiality Modal */}
       <AnimatePresence>

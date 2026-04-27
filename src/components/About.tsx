@@ -27,7 +27,7 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -42,7 +42,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-8"
           >
@@ -90,7 +90,7 @@ export default function About() {
                   key={stat.label}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                   className="bg-gray-100 border border-gray-200 rounded-xl p-6 text-center hover:border-gray-400 transition-colors duration-300"
                 >
@@ -107,7 +107,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-8"
           >
@@ -132,7 +132,7 @@ export default function About() {
                   key={skill.name}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
                   whileHover={{ scale: 1.02, y: -2 }}
                   className="bg-gray-100 border border-gray-200 rounded-xl p-5 hover:border-gray-400 hover:bg-gray-200 transition-all duration-300 group"
@@ -150,7 +150,7 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center mt-16"
         >

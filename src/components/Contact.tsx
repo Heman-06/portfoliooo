@@ -53,7 +53,7 @@ export default function Contact() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -71,7 +71,7 @@ export default function Contact() {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-8"
           >
@@ -90,7 +90,7 @@ export default function Contact() {
                   href={info.href}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                   className="flex items-center gap-4 p-4 bg-gray-100 rounded-xl border border-gray-200 hover:border-cyan-500/50 hover:bg-gray-200 transition-all duration-300 group"
                 >
@@ -107,34 +107,14 @@ export default function Contact() {
               ))}
             </div>
 
-            {/* Social Links */}
-            <div className="pt-8">
-              <p className="text-gray-600 text-sm mb-4">Follow me on</p>
-              <div className="flex gap-4">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={social.label}
-                    href={social.href}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
-                    whileHover={{ scale: 1.1 }}
-                    className={`p-3 bg-gray-100 rounded-lg border border-gray-200 text-gray-600 ${social.color} hover:bg-gray-200 transition-all duration-300`}
-                    aria-label={social.label}
-                  >
-                    <social.icon size={20} />
-                  </motion.a>
-                ))}
-              </div>
-            </div>
+           
           </motion.div>
 
           {/* Right - Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="relative">
@@ -211,7 +191,7 @@ export default function Contact() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-20 pt-8 border-t border-gray-300 text-center"
         >

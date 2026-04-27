@@ -12,7 +12,7 @@ export default function Qualification() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6 }}
             className="inline-block mb-12"
           >
@@ -27,7 +27,7 @@ export default function Qualification() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative flex max-w-2xl mx-auto flex-col items-center justify-center overflow-hidden rounded-lg border border-gray-200 bg-white p-4"
           >

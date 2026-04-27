@@ -12,6 +12,11 @@ const nextConfig: NextConfig = {
         hostname: 'bharatbusinessnetworks.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'e-thekedaar-assets.s3.ap-south-1.amazonaws.com',
+        pathname: '/**',
+      },
     ],
   },
   compress: true,
