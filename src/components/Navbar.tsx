@@ -101,7 +101,7 @@ export default function Navbar() {
             transition={{ duration: 0.2 }}
             className="fixed top-16 left-0 right-0 z-40 md:hidden bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-lg"
           >
-            <div className="px-4 py-4 space-y-1">
+            <div className="px-4 py-6 space-y-2 max-h-[70vh] overflow-y-auto">
               {navLinks.map((link, index) => (
                 <motion.a
                   key={link.name}
@@ -110,7 +110,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
-                  className="block px-4 py-3 text-gray-600 hover:text-black hover:bg-black/10 rounded-lg transition-all duration-200"
+                  className="block px-4 py-4 text-gray-700 hover:text-black hover:bg-black/10 rounded-lg transition-all duration-200 font-medium"
                 >
                   {link.name}
                 </motion.a>

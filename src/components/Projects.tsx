@@ -207,7 +207,7 @@ export default function Projects() {
             <span className="w-2 h-2 bg-purple-500 rounded-full" />
             Other Projects
           </h3>
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.filter(p => !p.featured).map((project, index) => (
               <motion.div
                 key={project.title}

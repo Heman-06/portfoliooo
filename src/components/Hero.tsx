@@ -1,35 +1,42 @@
-import React, { Suspense, lazy } from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import RotatingText from './RotatingText';
-
-// Lazy load Spline to prevent blocking initial render
-const Spline = lazy(() => import('@splinetool/react-spline'));
+import Spline from '@splinetool/react-spline';
 
 /**
  * A modern, minimal hero section component.
  */
 export default function Hero() {
+  const [isLoading, setIsLoading] = useState(true);
   const skills = ['Mobile App Development', 'Full Stack Web Developer', 'Shopify Expert', 'Creative Coder'];
 
   return (
     <section id="home" className="relative w-full h-screen overflow-hidden">
-      {/* 1. Spline Background */}
-      <div className="absolute inset-0 z-10 w-full h-full">
-        <Suspense fallback={<div className="w-full h-full bg-gradient-to-br from-purple-900 via-black to-blue-900" />}>
-          <Spline
-            scene="https://prod.spline.design/9xuF1oRA5poA131s/scene.splinecode"
-            aria-label="Interactive 3D animation"
-          />
-        </Suspense>
+      {/* Full page loading overlay - covers entire screen including content until Spline loads */}
+      <div
+        className={`fixed inset-0 z-[100] flex items-center justify-center bg-black transition-opacity duration-700 ${
+          isLoading ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        <div className="flex items-center gap-2">
+          <div className="w-4 h-4 bg-white rounded-full animate-bounce [animation-delay:-0.3s]" />
+          <div className="w-4 h-4 bg-white rounded-full animate-bounce [animation-delay:-0.15s]" />
+          <div className="w-4 h-4 bg-white rounded-full animate-bounce" />
+        </div>
       </div>
 
-      {/* Navigation with Name */}
-      <nav className="absolute top-0 left-0 right-0 z-30 flex justify-between items-center p-8 pointer-events-none">
-        <div className="text-white text-2xl font-bold pointer-events-auto md:hidden">
-          Hemant Asthana
-        </div>
-      </nav>
+      {/* 1. Spline Background */}
+      <div className="absolute inset-0 z-10 w-full h-full">
+        <Spline
+          scene="https://prod.spline.design/9xuF1oRA5poA131s/scene.splinecode"
+          aria-label="Interactive 3D animation"
+          onLoad={() => setIsLoading(false)}
+        />
+      </div>
 
+      
       {/* 2. Overlay Content */}
       {/* Content is aligned to the center */}
       <div className="relative z-20 flex items-center justify-center w-full h-full p-8 text-center bg-black/20 pointer-events-none sm:p-16 md:p-24">

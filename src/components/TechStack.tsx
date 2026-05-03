@@ -152,9 +152,9 @@ interface SkillItem {
 const SkillIcon = ({ skill }: { skill: SkillItem | { name: string; icon: React.FC; color: string } }) => {
   const Icon = skill.icon;
   return (
-    <div className={`flex items-center gap-3 px-5 py-3 bg-gray-100 rounded-full border border-gray-300 hover:border-${skill.color}-500/50 transition-all duration-300 group`}>
+    <div className={`flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-3 bg-gray-100 rounded-full border border-gray-300 hover:border-${skill.color}-500/50 transition-all duration-300 group`}>
       <Icon />
-      <span className="text-gray-800 text-sm font-medium whitespace-nowrap group-hover:text-black">{skill.name}</span>
+      <span className="text-gray-800 text-xs sm:text-sm font-medium whitespace-nowrap group-hover:text-black">{skill.name}</span>
     </div>
   );
 };
@@ -255,7 +255,7 @@ function VelocityRow({
   const spans = [];
   for (let i = 0; i < numCopies; i++) {
     spans.push(
-      <div className="flex-shrink-0 flex items-center gap-4" key={i} ref={i === 0 ? copyRef : null}>
+      <div className="flex-shrink-0 flex items-center gap-2 sm:gap-4" key={i} ref={i === 0 ? copyRef : null}>
         {children}
       </div>
     );
@@ -292,21 +292,21 @@ export default function TechStack() {
         </motion.div>
 
         {/* 2-Row Carousel with Blur Effects */}
-        <div className="relative max-w-6xl mx-auto flex flex-col gap-4">
+        <div className="relative max-w-6xl mx-auto flex flex-col gap-2 sm:gap-4">
           {/* Left Blur */}
           <div
-            className="pointer-events-none absolute left-0 top-0 h-full w-20 z-10"
+            className="pointer-events-none absolute left-0 top-0 h-full w-12 sm:w-20 z-10"
             style={{
               background: 'linear-gradient(to right, rgba(255, 255, 255, 0.9) 60%, rgba(255, 255, 255, 0))',
-              filter: 'blur(8px)',
+              filter: 'blur(4px)',
             }}
           />
           {/* Right Blur */}
           <div
-            className="pointer-events-none absolute right-0 top-0 h-full w-20 z-10"
+            className="pointer-events-none absolute right-0 top-0 h-full w-12 sm:w-20 z-10"
             style={{
               background: 'linear-gradient(to left, rgba(255, 255, 255, 0.9) 60%, rgba(255, 255, 255, 0))',
-              filter: 'blur(8px)',
+              filter: 'blur(4px)',
             }}
           />
 

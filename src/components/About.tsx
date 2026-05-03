@@ -84,7 +84,7 @@ export default function About() {
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
@@ -92,12 +92,12 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  className="bg-gray-100 border border-gray-200 rounded-xl p-6 text-center hover:border-gray-400 transition-colors duration-300"
+                  className="bg-gray-100 border border-gray-200 rounded-xl p-4 sm:p-6 text-center hover:border-gray-400 transition-colors duration-300"
                 >
-                  <div className="text-3xl md:text-4xl font-bold text-black mb-1">
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-1">
                     {stat.number}
                   </div>
-                  <div className="text-gray-600 text-sm">{stat.label}</div>
+                  <div className="text-gray-600 text-xs sm:text-sm">{stat.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -126,7 +126,7 @@ export default function About() {
             </div>
 
             {/* Skills Grid */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {skills.map((skill, index) => (
                 <motion.div
                   key={skill.name}
@@ -135,11 +135,11 @@ export default function About() {
                   viewport={{ once: false }}
                   transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
                   whileHover={{ scale: 1.02, y: -2 }}
-                  className="bg-gray-100 border border-gray-200 rounded-xl p-5 hover:border-gray-400 hover:bg-gray-200 transition-all duration-300 group"
+                  className="bg-gray-100 border border-gray-200 rounded-xl p-4 sm:p-5 hover:border-gray-400 hover:bg-gray-200 transition-all duration-300 group"
                 >
-                  <skill.icon className="w-8 h-8 text-gray-700 mb-3 group-hover:text-black transition-colors" />
-                  <h4 className="text-black font-semibold mb-1">{skill.name}</h4>
-                  <p className="text-gray-600 text-sm">{skill.desc}</p>
+                  <skill.icon className="w-6 h-6 sm:w-8 sm:h-8 text-gray-700 mb-2 sm:mb-3 group-hover:text-black transition-colors" />
+                  <h4 className="text-black font-semibold mb-1 text-sm sm:text-base">{skill.name}</h4>
+                  <p className="text-gray-600 text-xs sm:text-sm">{skill.desc}</p>
                 </motion.div>
               ))}
             </div>
