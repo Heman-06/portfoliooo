@@ -8,18 +8,30 @@ export default function SmoothScroll() {
   const pathname = usePathname();
   const lenisRef = useRef<Lenis | null>(null);
 
-  // Initialize Lenis
+  // Check if device is mobile/touch
+  const isMobile = () => {
+    return window.innerWidth < 768 || 'ontouchstart' in window;
+  };
+
+  // Initialize Lenis only on desktop
   useEffect(() => {
+    // Skip Lenis on mobile - use native touch scrolling
+    if (isMobile()) {
+      document.documentElement.classList.add('lenis');
+      return;
+    }
+
     // Add lenis class to html for CSS targeting
     document.documentElement.classList.add('lenis');
 
     const lenis = new Lenis({
-      duration: 0.6,
-      lerp: 0.03,
+      duration: 0.3,
+      lerp: 0.01,
       smoothWheel: true,
-      touchMultiplier: 2.5,
-      wheelMultiplier: 2,
+      touchMultiplier: 1.5,
+      wheelMultiplier: 2.5,
       infinite: false,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });
 
     lenisRef.current = lenis;

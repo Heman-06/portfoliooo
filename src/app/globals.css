@@ -6,6 +6,34 @@ html {
 
 html.lenis, html.lenis body {
   height: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+}
+
+/* Mobile - use native scrolling */
+@media (max-width: 768px) {
+  html.lenis {
+    touch-action: pan-y;
+    scroll-behavior: auto;
+  }
+  
+  html.lenis body {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: auto;
+  }
+  
+  section {
+    scroll-snap-align: none;
+  }
+}
+
+/* Prevent scroll-jumping at section boundaries */
+html.lenis {
+  scroll-padding-top: 0;
+}
+
+html.lenis body {
+  scroll-behavior: auto;
 }
 
 :root {
