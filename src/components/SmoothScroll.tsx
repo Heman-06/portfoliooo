@@ -14,11 +14,11 @@ export default function SmoothScroll() {
     document.documentElement.classList.add('lenis');
 
     const lenis = new Lenis({
-      duration: 1.0,
-      lerp: 0.1,
+      duration: 0.6,
+      lerp: 0.03,
       smoothWheel: true,
-      touchMultiplier: 1.5,
-      wheelMultiplier: 1.2,
+      touchMultiplier: 2.5,
+      wheelMultiplier: 2,
       infinite: false,
     });
 
@@ -43,7 +43,7 @@ export default function SmoothScroll() {
           if (element) {
             lenis.scrollTo(element as HTMLElement, {
               offset: 0,
-              duration: 1.2,
+              duration: 0.6,
             });
           }
         }
